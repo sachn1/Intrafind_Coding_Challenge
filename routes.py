@@ -1,3 +1,11 @@
+"""
+@author: Sachin Nandakumar
+
+This script routes to different pages with necessary parameters
+
+"""
+
+
 from flask import Flask, render_template, flash, redirect, url_for, request
 from flask_table import Table, Col, LinkCol, ButtonCol
 from config import Config
@@ -9,7 +17,8 @@ import re
 app = Flask(__name__)
 app.config.from_object(Config)
 
-USER_DB = {}
+# User database
+USER_DB = {} 
 email_validation_regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
 
 # --------------------------------------------------------------------------------------------
@@ -86,7 +95,7 @@ def display_records():
 
 @app.route('/update_user', methods=['GET', 'POST', 'DELETE'])
 def update_user():
-   '''
+   '''  
         This function updates the user details
             * If the user updates with a new email address, it is validated with the user DB to 
                 see it is already taken by some previous users
