@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+	
+    <div class="col-md-4">
+		<body>
+			<div class="container" style="padding: 10px; ">
+				<h4 style="text-align:center">Intrafind Coding Challenge: Update Users</h4><br><br>
+				{% if data[1] > 0 %}
+					<div>
+						<table border=2>
+							<tr>
+								<td>First Name</td><td>Last Name</td><td>Email</td><td>Update</td>
+							</tr>
+							
+							{% for key, value in data[0].items() %}
+								<tr>
+									<td>{{value['first_name']}}</td>
+									<td>{{value['last_name']}}</td>
+									<td>{{key}}</td>
+									<td><a href="update_user?first_name={{value['first_name']}}&last_name={{value['last_name']}}&email={{key}}">Edit</a>
+									<a href="display_records?email={{key}}">Delete</a></td>
+								</tr>
+							{% endfor %}
+							
+						</table>
+					</div>
+				{% else %}
+					<div class="container" style="padding: 10px; ">
+						<h6 style="text-align:center"> No records available </h6>
+					</div>
+				{% endif %}
+			</div>
+			{% if data[2] %}
+				<div class="container" style="padding: 10px; ">
+					<h6 style="text-align:center"> User with email {{data[2]}} deleted</h6>
+				</div>
+			{% endif %}
+		</body>
+	</div>
+	</div>
+	</div>
+{% endblock %}

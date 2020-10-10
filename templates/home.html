@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
+		<body>
+			<h1>Intrafind Coding Challenge</h1><br><br>
+			{% if name and message%}
+				<h4 style="text-align:center">User {{name}} {{message}}!</h4><br><br>
+			{% else %}
+				<h4 style="text-align:center">Hello, User!</h4><br><br>
+				<div><h3 style="text-align:center">Welcome to Intrafind Coding Challenge!</h3></div><br>
+			{% endif %}
+			<div><p> You can create a new user or update/delete existing user(s) with this service</p></div>
+		</body>
+	</div>
+	</div>
+	</div>
+{% endblock %}
