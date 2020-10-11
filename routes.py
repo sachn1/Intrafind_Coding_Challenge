@@ -126,4 +126,4 @@ def update_user():
    return render_template('update_user.html', title='Update User Details', data=[form, form.first_name.data, form.last_name.data, form.email.data])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port='2827', debug=True)
